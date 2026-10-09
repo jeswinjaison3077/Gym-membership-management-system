@@ -1,14 +1,20 @@
 package gym.model;
 
 /**
+ * ============================================================================
+ * [CONCEPT: ABSTRACTION & INHERITANCE BASE]
  * Abstract base class representing any human entity in the gym system.
- * Demonstrates ABSTRACTION: it defines the common contract (fields + the
- * abstract method displayDetails()) but cannot be instantiated itself.
- * Member and Trainer extend this class -> INHERITANCE.
+ * 
+ * Demonstrates:
+ * 1. Abstraction: Cannot be instantiated directly.
+ * 2. Encapsulation: Private instance variables accessed via getters/setters.
+ * 3. Inheritance Base: Parent class for Member and Trainer.
+ * 4. Abstract Method: Subclasses MUST override displayDetails().
+ * ============================================================================
  */
 public abstract class Person {
 
-    // Private fields -> ENCAPSULATION (accessed only through getters/setters)
+    // Private fields -> ENCAPSULATION
     private int id;
     private String name;
     private String phone;
@@ -35,10 +41,8 @@ public abstract class Person {
     public void setEmail(String email) { this.email = email; }
 
     /**
-     * Abstract method -> every subclass MUST provide its own version.
-     * This is the hook for POLYMORPHISM: calling displayDetails() on a
-     * Person reference will run the subclass's specific implementation
-     * at runtime (dynamic method dispatch).
+     * [CONCEPT: POLYMORPHISM - DYNAMIC METHOD DISPATCH]
+     * Hook for dynamic method dispatch.
      */
     public abstract void displayDetails();
 }

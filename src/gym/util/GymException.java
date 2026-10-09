@@ -1,12 +1,22 @@
 package gym.util;
 
 /**
- * Custom checked exception used for business-rule violations
- * (e.g. duplicate member, invalid plan chosen).
- * Demonstrates custom EXCEPTION HANDLING, a common viva question.
+ * ============================================================================
+ * [CONCEPT: EXCEPTION HANDLING - CUSTOM EXCEPTION]
+ * Custom application-specific exception class.
+ * 
+ * Demonstrates:
+ * 1. Extending Exception class to create a custom checked exception.
+ * 2. Exception propagation and handling via try-catch blocks.
+ * ============================================================================
  */
 public class GymException extends Exception {
+    
     public GymException(String message) {
         super(message);
+    }
+    
+    public GymException(String message, Throwable cause) {
+        super(message, cause);
     }
 }

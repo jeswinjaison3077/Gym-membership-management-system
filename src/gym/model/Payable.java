@@ -1,11 +1,14 @@
 package gym.model;
 
 /**
- * Interface -> pure ABSTRACTION contract.
- * Any class that involves a monetary transaction implements this,
- * guaranteeing it can calculate dues and generate a receipt.
- * Demonstrates INTERFACE-based abstraction + POLYMORPHISM
- * (different classes could implement this differently).
+ * ============================================================================
+ * [CONCEPT: INTERFACE & ABSTRACTION]
+ * Pure abstraction contract for financial billing and receipt generation.
+ * 
+ * Demonstrates:
+ * 1. Interface abstraction: Declares abstract method contracts.
+ * 2. Interface polymorphism: Multiple classes can implement this interface.
+ * ============================================================================
  */
 public interface Payable {
     double calculateAmountDue();

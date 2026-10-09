@@ -3,20 +3,26 @@ package gym.model;
 import java.time.LocalDate;
 
 /**
- * Represents a gym member. Extends Person -> INHERITANCE.
- * Overrides displayDetails() -> POLYMORPHISM (method overriding).
+ * ============================================================================
+ * [CONCEPT: INHERITANCE & POLYMORPHISM]
+ * Represents a gym member.
+ * 
+ * Demonstrates:
+ * 1. Inheritance: Extends Person ('super' keyword used in constructor).
+ * 2. Polymorphism: Overrides displayDetails() method.
+ * ============================================================================
  */
 public class Member extends Person {
 
     private int age;
     private String gender;
     private LocalDate joinDate;
-    private Integer trainerId;   // nullable: member may not have a trainer yet
-    private String trainerName;  // convenience field filled in by DAO joins (not stored again in DB)
+    private Integer trainerId;
+    private String trainerName;
 
     public Member(int id, String name, String phone, String email,
                   int age, String gender, LocalDate joinDate, Integer trainerId) {
-        super(id, name, phone, email);   // calling parent constructor
+        super(id, name, phone, email); // calling superclass constructor
         this.age = age;
         this.gender = gender;
         this.joinDate = joinDate;
@@ -38,7 +44,7 @@ public class Member extends Person {
     public String getTrainerName() { return trainerName; }
     public void setTrainerName(String trainerName) { this.trainerName = trainerName; }
 
-    // Overridden (Runtime Polymorphism)
+    // [CONCEPT: POLYMORPHISM - METHOD OVERRIDING]
     @Override
     public void displayDetails() {
         System.out.println("---------------------------------------------");

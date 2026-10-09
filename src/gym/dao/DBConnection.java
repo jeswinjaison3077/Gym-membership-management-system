@@ -5,9 +5,15 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
- * Central place that hands out JDBC connections.
- * Change URL / USER / PASSWORD to match your local MySQL setup.
- * Kept as a single class so the rest of the app never talks SQL config directly.
+ * ============================================================================
+ * [CONCEPT: JDBC DATABASE CONNECTION]
+ * Manages database connectivity using JDBC (Java Database Connectivity).
+ * 
+ * Demonstrates:
+ * 1. JDBC Driver Loading (com.mysql.cj.jdbc.Driver)
+ * 2. DriverManager connection initialization
+ * 3. Singleton pattern concept for managing database connection instance
+ * ============================================================================
  */
 public class DBConnection {
 
@@ -17,7 +23,7 @@ public class DBConnection {
 
     private static Connection connection;
 
-    private DBConnection() { }  // prevent instantiation
+    private DBConnection() { }  // Private constructor prevents instantiation
 
     public static Connection getConnection() throws SQLException {
         if (connection == null || connection.isClosed()) {
@@ -25,7 +31,7 @@ public class DBConnection {
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 connection = DriverManager.getConnection(URL, USER, PASSWORD);
             } catch (ClassNotFoundException e) {
-                throw new SQLException("MySQL JDBC Driver not found. Add mysql-connector-j jar to classpath.", e);
+                throw new SQLException("MySQL JDBC Driver not found. Ensure MySQL Connector JAR is in classpath.", e);
             }
         }
         return connection;
@@ -37,7 +43,7 @@ public class DBConnection {
                 connection.close();
             }
         } catch (SQLException e) {
-            System.out.println("Error closing connection: " + e.getMessage());
+            System.out.println("Error closing DB connection: " + e.getMessage());
         }
     }
 }

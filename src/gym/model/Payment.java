@@ -3,11 +3,17 @@ package gym.model;
 import java.time.LocalDate;
 
 /**
- * Represents a payment made by a member.
- * Implements Payable -> INTERFACE IMPLEMENTATION (a form of abstraction
- * and polymorphism: any Payable object can be billed/receipted the same way).
+ * ============================================================================
+ * [CONCEPT: INTERFACE IMPLEMENTATION & POLYMORPHISM]
+ * Represents a payment transaction made by a member.
+ * 
+ * Demonstrates:
+ * 1. Interface Implementation: Implements Payable interface.
+ * 2. Polymorphism: Provides concrete implementation for calculateAmountDue() and generateReceipt().
+ * ============================================================================
  */
 public class Payment implements Payable {
+
     private int paymentId;
     private int memberId;
     private Integer subscriptionId;
@@ -27,15 +33,15 @@ public class Payment implements Payable {
         this.status = status;
     }
 
-        public int getPaymentId() { return paymentId; }
-        public int getMemberId() { return memberId; }
-        public Integer getSubscriptionId() { return subscriptionId; }
-        public double getAmount() { return amount; }
-        public LocalDate getPaymentDate() { return paymentDate; }
-        public String getPaymentMode() { return paymentMode; }
-        public String getStatus() { return status; }
+    public int getPaymentId() { return paymentId; }
+    public int getMemberId() { return memberId; }
+    public Integer getSubscriptionId() { return subscriptionId; }
+    public double getAmount() { return amount; }
+    public LocalDate getPaymentDate() { return paymentDate; }
+    public String getPaymentMode() { return paymentMode; }
+    public String getStatus() { return status; }
 
-    // ----- Payable interface implementation -----
+    // [CONCEPT: INTERFACE METHOD IMPLEMENTATION]
     @Override
     public double calculateAmountDue() {
         return "DUE".equalsIgnoreCase(status) ? amount : 0.0;

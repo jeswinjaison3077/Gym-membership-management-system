@@ -1,8 +1,14 @@
 package gym.model;
 
 /**
- * Represents a gym trainer. Extends Person -> INHERITANCE.
- * Overrides displayDetails() differently from Member -> POLYMORPHISM.
+ * ============================================================================
+ * [CONCEPT: INHERITANCE & POLYMORPHISM]
+ * Represents a gym trainer.
+ * 
+ * Demonstrates:
+ * 1. Inheritance: Extends Person.
+ * 2. Polymorphism: Overrides displayDetails() with trainer-specific output.
+ * ============================================================================
  */
 public class Trainer extends Person {
 
@@ -22,6 +28,7 @@ public class Trainer extends Person {
     public int getExperienceYears() { return experienceYears; }
     public void setExperienceYears(int experienceYears) { this.experienceYears = experienceYears; }
 
+    // [CONCEPT: POLYMORPHISM - METHOD OVERRIDING]
     @Override
     public void displayDetails() {
         System.out.println("---------------------------------------------");
