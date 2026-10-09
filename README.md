@@ -103,3 +103,20 @@ java -cp "lib/*:out" gym.Main
 6. **Collections Framework**: `List`, `ArrayList`
 7. **Database Connectivity**: JDBC (`PreparedStatement`, `ResultSet`, `Transaction Management`)
 8. **GUI (Swing)**: `JFrame`, `JTabbedPane`, `JPanel`, `JTable`, `DefaultTableModel`
+
+---
+
+## 📊 KTU Syllabus vs Project Mapping Matrix
+
+| KTU Syllabus Topic | Implementation & Project File | Syllabus Coverage |
+| :--- | :--- | :---: |
+| **1. Classes, Objects & Constructors** | Private fields, constructors, `this` & `super` keywords across all model classes (`Member.java`, `Trainer.java`). | ✅ **100%** |
+| **2. Inheritance & Hierarchy** | Base abstract class `Person.java` extended by derived subclasses `Member` and `Trainer`. | ✅ **100%** |
+| **3. Polymorphism & Method Overriding** | Dynamic method overriding of abstract method `displayDetails()` in `Member` and `Trainer`. | ✅ **100%** |
+| **4. Abstraction & Interfaces** | Abstract class `Person.java` and pure contract interface `Payable.java` implemented by `Payment.java`. | ✅ **100%** |
+| **5. Encapsulation & Access Control** | `private` attributes with `public` getters/setters across all model entities. | ✅ **100%** |
+| **6. Custom & Built-in Exception Handling** | Custom checked exception `GymException.java` (`extends Exception`), plus `try-catch-finally` for `SQLException`. | ✅ **100%** |
+| **7. Java Collections Framework & Generics** | Heavy usage of `List<Member>`, `ArrayList<Trainer>`, `List<Subscription>`, etc., in `GymDAO.java`. | ✅ **100%** |
+| **8. Database Connectivity (JDBC)** | Driver loading (`com.mysql.cj.jdbc.Driver`), `PreparedStatement`, `ResultSet`, and **DB Transaction Management** (`commit()`/`rollback()`) in `GymService.java`. | ✅ **100%** |
+| **9. Event-Driven Swing GUI** | Multi-tab UI (`MainFrame.java`) with `JTable`, `DefaultTableModel`, `JOptionPane`, `ActionListener` events, and background multithreading via `SwingWorker`. | ✅ **100%** |
+
