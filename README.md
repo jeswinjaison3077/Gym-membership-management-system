@@ -1,0 +1,54 @@
+# Gym Membership Management System (OOP Lab Project)
+**KTU S3 CSE Syllabus (CSL 203 / CST 205 - Object Oriented Programming in Java)**
+
+---
+
+## 👥 Presentation & File Division (5 Members)
+
+| Team Member | Assigned Files | Core OOP Concepts / Viva Topics |
+| :--- | :--- | :--- |
+| **Jeswin** *(Project Lead)* | • `src/gym/Main.java`<br>• `src/gym/ui/MainFrame.java`<br>• `src/gym/service/GymService.java` | • System Architecture (UI -> Service -> DAO -> Database)<br>• Transaction Control (`setAutoCommit(false)`, `commit()`, `rollback()`)<br>• LookAndFeel Theme & Swing Thread Management (`SwingUtilities.invokeLater`) |
+| **Pranav** | • `src/gym/model/Person.java`<br>• `src/gym/model/Member.java`<br>• `src/gym/model/Trainer.java`<br>• `src/gym/ui/MemberPanel.java` | • **Abstraction**: Abstract base class `Person` with abstract method `displayDetails()`\n• **Inheritance**: `Member` & `Trainer` extending `Person` (`super` keyword)\n• **Polymorphism**: Dynamic method overriding of `displayDetails()`\n• **Encapsulation**: Private fields with public getters/setters |
+| **Abhijith (Pillai)** | • `sql/schema_mysql.sql`<br>• `src/gym/dao/DBConnection.java`<br>• `src/gym/dao/GymDAO.java` | • **JDBC Database Connectivity**: `DriverManager`, `Connection`, `PreparedStatement`, `ResultSet`<br>• SQL Injection Protection using Parameterized Queries (`?`)<br>• **Collections Framework**: Mapping ResultSets into `List<Member>` & `ArrayList<Trainer>`<br>• Relational Schema & Foreign Key constraints |
+| **Lihan** | • `src/gym/model/Payable.java`<br>• `src/gym/model/Payment.java`<br>• `src/gym/ui/PaymentPanel.java`<br>• `src/gym/util/GymException.java` | • **Interface Abstraction**: Pure contract interface `Payable`<br>• **Interface Polymorphism**: Class `Payment` implementing `Payable`<br>• **Exception Handling**: Custom Checked Exception `GymException`, `try-catch` blocks<br>• Payment calculation & receipt generation |
+| **Sreehari** | • `src/gym/model/Plan.java`<br>• `src/gym/model/Subscription.java`<br>• `src/gym/model/WorkoutPlan.java`<br>• `src/gym/ui/SubscriptionPanel.java`<br>• `src/gym/ui/WorkoutPanel.java`<br>• `src/gym/ui/ReportsPanel.java` | • Association & Relationships (Member to Plan, Trainer to Workout Plan)<br>• Date Calculations using `java.time.LocalDate`<br>• Swing Event Handling (`ActionListener`) & Summary Analytics |
+
+---
+
+## 🛠️ Project Setup & Database Configuration
+
+### 1. Database Setup (MySQL)
+Run the schema script in MySQL Workbench or CLI:
+```sql
+SOURCE sql/schema_mysql.sql;
+```
+
+### 2. Database Connection Credentials
+Edit `src/gym/dao/DBConnection.java` if your local MySQL configuration differs:
+```java
+private static final String URL      = "jdbc:mysql://localhost:3306/gym_management";
+private static final String USER     = "root";
+private static final String PASSWORD = "Hello";
+```
+
+### 3. Compilation & Execution
+Compile and run the project with MySQL Connector in classpath:
+```bash
+javac -cp "lib/*:." -d out src/gym/*.java src/gym/*/*.java
+java -cp "lib/*:out" gym.Main
+```
+
+---
+
+## 💡 Key OOP Pillars Covered for KTU Lab Viva
+
+1. **Inheritance**: `Person` $\rightarrow$ `Member`, `Trainer`
+2. **Polymorphism**:
+   - Method Overriding (`displayDetails()`)
+   - Interface Polymorphism (`Payable` implemented by `Payment`)
+3. **Abstraction**: Abstract Class `Person`, Interface `Payable`
+4. **Encapsulation**: Private members with getters and setters
+5. **Exception Handling**: Custom Exception `GymException`, JDBC `SQLException`
+6. **Collections Framework**: `List`, `ArrayList`
+7. **Database Connectivity**: JDBC (`PreparedStatement`, `ResultSet`, `Transaction Management`)
+8. **GUI (Swing)**: `JFrame`, `JTabbedPane`, `JPanel`, `JTable`, `DefaultTableModel`
